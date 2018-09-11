@@ -7,6 +7,7 @@ public class PrintPrimes {
 	public static void main(String[] args) {
 		try {
 			SieveOfErasthones sieve = new SieveOfErasthones();
+			System.out.println("Sieve program");
 			List<Integer> primes = sieve.computePrimes(Integer.parseInt(args[0]));
 			System.out.println("Prime number from 2 to "+ args[0] +" are ");
 			System.out.println(primes);
