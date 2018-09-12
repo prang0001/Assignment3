@@ -9,7 +9,6 @@ import java.util.List;
  */
 public class SieveOfErasthones {
 	
-	int numberInput;
 		
 	public List<Integer> computePrimes(int n) {
 		boolean prime[] = new boolean[n + 1];
@@ -30,7 +29,9 @@ public class SieveOfErasthones {
 	    return primeNumbers;
 	}
 	
-	
+	public static void main (String args[]) {
+		new SieveOfErasthones().computePrimes(10);
+	}
 	
 
 }

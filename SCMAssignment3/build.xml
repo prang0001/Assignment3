@@ -4,7 +4,7 @@
 	<property name="build.dir"   value="build"/>
 	<property name="classes.dir" value="${build.dir}/classes"/>
 	<property name="jar.dir"     value="${build.dir}/jar"/>
-    <property name="main-class"  value="com.prang.scm.assignment3.PrintPrimes"/>
+    <property name="main-class"  value="com.prang.scm.assignment3.SieveOfErasthones"/>
 
 	<target name="clean">
 	        <delete dir="${build.dir}"/>
@@ -12,10 +12,10 @@
 	
 	<target name="compile">
 	        <mkdir dir="${classes.dir}"/>
-	        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false"/>
+	        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false" classpath="lib/junit.jar"/>
 	</target>
 
-	<target name="jar" depends="compile">
+	<target name="jar" depends="compile,test1">
 	    <mkdir dir="${jar.dir}"/>
 	    <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
 	        <manifest>
@@ -26,7 +26,6 @@
 
     <target name="run" depends="jar">
     	<property name="name" value="Test"/>
-    	    <input message="Enter Number to compute :" addproperty="inputvalue"  defaultvalue="n" />
     	        <java classname="${main-class}" failonerror="true" fork="false"  >
 	    	        <classpath>
 	    	            <pathelement location="${classes.dir}" />
@@ -38,5 +37,21 @@
 	<target name="clean-build" depends="clean,jar"/>
 
 	<target name="main" depends="clean,run"/>
+	
+	<target name="test1" depends="compile">
+
+	  <junit printsummary="yes" haltonfailure="yes" haltOnError="yes">
+		
+	  	
+	    <classpath>
+	      <pathelement location="${classes.dir}"/>
+	      <pathelement location="lib/junit.jar"/>
+	    </classpath>
+	    <test name="com.prang.scm.assignment3.test.SieveOfErasthonesTest"
+	             haltonfailure="yes" outfile="result">
+	    </test>
+
+	  </junit>
+	</target>
 	
 </project>
