@@ -11,7 +11,9 @@ public class SieveOfErasthones {
 	
 		
 	public List<Integer> computePrimes(int n) {
-		boolean prime[] = new boolean[n + 1];
+		
+	    System.out.println("Auto build checking");		
+	    boolean prime[] = new boolean[n + 1];
 	    Arrays.fill(prime, true);
 	    for (int p = 2; p * p <= n; p++) {
 	        if (prime[p]) {
