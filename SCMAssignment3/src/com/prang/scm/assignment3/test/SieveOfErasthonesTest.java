@@ -16,7 +16,7 @@ public class SieveOfErasthonesTest {
 		int n = 10;
 		List<Integer> primes = new SieveOfErasthones().computePrimes(n);
 		System.out.println(primes);
-		assertTrue(primes.contains(8));
+		assertTrue(primes.contains(7));
 	}
 
 }
